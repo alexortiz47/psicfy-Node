@@ -1,0 +1,11 @@
+extend ../layout.pug
+
+block content
+    .container
+        h1.text-center.mb-5 Listado especialidades
+        .row
+            .col-12
+                each esp in especialidades
+                    div
+                        p= esp.titulo
+        

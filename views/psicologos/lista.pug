@@ -1,0 +1,14 @@
+extends ../layout.pug
+
+block content
+    .container
+        h1.text-center.mb-5 Listado de psicólogos
+        .row
+            .col-12
+                each psicologo in psicologos 
+                    div
+                        h4= psicologo.nombre
+                        h4= psicologo.apellidos
+                        h4= psicologo.numColeg
+                        p= psicologo.correo
+                        p= psicologo.poblacion

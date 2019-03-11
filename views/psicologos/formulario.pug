@@ -1,0 +1,42 @@
+extends ../layout.pug
+
+block content
+    .container
+        h1.text-center.mb-5 Nuevo psicólogo
+        .row
+            .col-5.mx-auto
+                form(method="POST", action="/psicologos/create")
+                    .form-group
+                        label Nombre:
+                        input.form-control(type="text", name="nombre")
+                    .form-group
+                        label Apellidos:
+                        input.form-control(type="text", name="apellidos")
+                    .form-group
+                        label Numero Colegiado:
+                        input.form-control(type="text", name="numColeg")
+                    .form-group
+                        label Direccion:
+                        input.form-control(type="text", name="direccion")
+                    .form-group
+                        label Código postal:
+                        input.form-control(type="text", name="cp")
+                    .form-group
+                        label Poblacion:
+                        input.form-control(type="text", name="poblacion")
+                    .form-group
+                        label Imagen (url):
+                        input.form-control(type="text", name="imgUrl")
+                    .form-group
+                        label Email:
+                        input.form-control(type="text", name="correo")
+                    .form-group
+                        label Contraseña:
+                        input.form-control(type="password", name="password")
+                    .form-group
+                        label Latitud:
+                        input.form-control(type="text", name="latitud")
+                    .form-group
+                        label Longitud:
+                        input.form-control(type="text", name="longitud")
+                    button.btn.btn-success.btn-block(type="submit") Guardar

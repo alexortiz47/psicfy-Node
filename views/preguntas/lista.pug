@@ -1,0 +1,11 @@
+extend ../layout.pug
+
+block content
+    .container
+        h1.text-center.mb-5 Listado preguntas
+        .row
+            .col-12
+                each pregunta in preguntas
+                    div
+                        p= pregunta.titulo
+        

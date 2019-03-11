@@ -1,0 +1,12 @@
+extends ../layout.pug
+
+block content
+    .container
+        h1.text-center.mb-5 Nueva especialidad
+        .row
+            .col-5.mx-auto
+                form(method="POST", action="/especialidades/create")
+                    .form-group
+                        label Titulo:
+                        input.form-control(type="text", name="titulo")
+                    button.btn.btn-success.btn-block(type="submit") Guardar
