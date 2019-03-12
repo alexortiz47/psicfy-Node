@@ -18,10 +18,10 @@ let getByToken = (token, done) => {
 }
 
 // Insertar psicologo en la BD
-let create = ({nombre, apellidos, numColeg, domicilio, codPostal, poblacion, imgUrl, correo, password, latitud, longitud}) => {
+let create = ({nombre, apellidos, numColeg, domicilio, poblacion, imgUrl, correo, password, latitud, longitud}) => {
     return new Promise((resolve, reject) => {
         let passwordEncriptada = bcrypt.hashSync(password, 10)
-        db.get().query('insert into psicologos (nombre, apellidos, numColeg, domicilio, codPostal, poblacion, imgUrl, correo, password, latitud, longitud) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [nombre, apellidos, numColeg, domicilio, codPostal, poblacion, imgUrl, correo, passwordEncriptada, latitud, longitud], (err, result) => {
+        db.get().query('insert into psicologos (nombre, apellidos, numColeg, domicilio, poblacion, imgUrl, correo, password, latitud, longitud) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [nombre, apellidos, numColeg, domicilio, poblacion, imgUrl, correo, passwordEncriptada, latitud, longitud], (err, result) => {
             if(err) resolve(err.message)
             reject(result)
         })
@@ -72,9 +72,13 @@ let updatePsicologo = (valuesUpdate) => {
             q+= 'domicilio = ?, '
             arr.push(valuesUpdate.domicilio)
         }
-        if(valuesUpdate.codPostal){
-            q+= 'codPostal = ?, '
-            arr.push(valuesUpdate.codPostal)
+        if(valuesUpdate.latitud){
+            q+= 'latitud = ?, '
+            arr.push(valuesUpdate.latitud)
+        }
+        if(valuesUpdate.longitud){
+            q+= 'longitud = ?, '
+            arr.push(valuesUpdate.longitud)
         }
         if(valuesUpdate.poblacion){
             q+= 'poblacion = ?, '
