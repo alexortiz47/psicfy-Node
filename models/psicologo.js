@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt')
 
 // Obtener todos los psicologos
 let getAll = (done) => {
-    db.get().query('select * from psicologos', (err, rows) => {
+    db.get().query('select * from psicologos order by nombre, apellidos asc', (err, rows) => {
         if(err) return console.log(err.message)
         done(null, rows)
     })
