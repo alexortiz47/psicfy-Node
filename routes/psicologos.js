@@ -31,7 +31,8 @@ router.post('/delete', async (req, res) => {
 // http://localhost:3000/psicologos/create
 router.post('/create', async (req, res) => {
     try{
-        await psicologoModel.create(req.body)
+        let result = await psicologoModel.create(req.body)
+        console.log(result)
         for(let i = 0; i < req.body.especialidades.length; i++) {
             let objEsp = {
                 fk_psicologo: result.insertId,

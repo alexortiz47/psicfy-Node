@@ -22,8 +22,8 @@ let create = ({nombre, apellidos, numColeg, domicilio, poblacion, imgUrl, correo
     return new Promise((resolve, reject) => {
         let passwordEncriptada = bcrypt.hashSync(password, 10)
         db.get().query('INSERT INTO psicologos (nombre, apellidos, numColeg, domicilio, poblacion, imgUrl, correo, password, latitud, longitud) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [nombre, apellidos, numColeg, domicilio, poblacion, imgUrl, correo, passwordEncriptada, latitud, longitud], (err, result) => {
-            if(err) resolve(err.message)
-            reject(result)
+            if(err) reject(err.message)
+            resolve(result)
         })
     })
 }
@@ -32,8 +32,8 @@ let createAdmin = (values) => {
     return new Promise((resolve, reject) => {
         let passwordEncriptada = bcrypt.hashSync(values.password, 10)
         db.get().query('INSERT INTO administrador VALUES(null, ?, ?)', [values.correo, passwordEncriptada], (err, result) => {
-            if(err) resolve(err.message)
-            reject(result)
+            if(err) reject(err.message)
+            resolve(result)
         })
     })
 }
@@ -103,7 +103,7 @@ let updatePsicologo = (valuesUpdate) => {
         // console.log(q)
         db.get().query(q, arr, (err, result) => {
             if(err) console.log(err.message)
-            resolve (result)
+            resolve(result)
         })
     })
 }
