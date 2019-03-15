@@ -32,7 +32,7 @@ router.post('/delete', async (req, res) => {
 router.post('/create', async (req, res) => {
     try{
         let result = await psicologoModel.create(req.body)
-        console.log(result)
+        // console.log(result)
         for(let i = 0; i < req.body.especialidades.length; i++) {
             let objEsp = {
                 fk_psicologo: result.insertId,
