@@ -24,6 +24,13 @@ function evaluarMensaje(pIntentWit) {
         break
         case 'funcionamiento':
             answer = 'Se trata de una plataforma para acercar la psicología a las personas. Te podemos orientar a la hora de decidir a que tipo de psicólogo asistir, así como facilitarte los datos de contacto del que más se ajuste a tus necesidades.'
+        break
+        case 'buscar':
+            answer = 'Para buscar un psicólogo, accede al apartado Buscar profesional, y ahí podrás hacer una búsqueda según tu localización o bien acceder a todos los psicólogos registrados y filtrar según lo que necesites'
+        break
+        case 'evaluar':
+            answer = 'Para que podamos evaluar tu situación y orientarte sobre el profesional más adecuado, accede al apartado Evaluate y sigue los pasos'
+        break
     }
 
     return answer
