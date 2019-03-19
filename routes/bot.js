@@ -11,7 +11,7 @@ router.post('/', (req, res) => {
         .then(dialog)
         .then((response) => {
             setTimeout(() => {
-                console.log(response)
+                // console.log(response)
                 res.json(response)
             }, Math.random()*5000)
             

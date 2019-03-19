@@ -6,7 +6,7 @@ module.exports = (message) => {
     return new Promise((resolve, reject) => {
         if (message.nlu.entities && message.nlu.entities.intent && message.nlu.entities.intent.length > 0) {
             let intentWit = message.nlu.entities.intent[0].value
-            console.log(intentWit)
+            // console.log(intentWit)
             if (intentWit === 'search') {
                 let espWit = message.nlu.entities.especialidad[0].value
                 resolve(evaluarMensajeSearch(espWit))
