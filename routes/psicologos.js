@@ -85,6 +85,15 @@ router.post('/token', (req, res) => {
     })
 })
 
+// http://localhost:3000/psicologos/id
+router.post('/id', (req, res) => {
+    // console.log(req.body)
+    psicologoModel.getById(req.body.id, (err, result) => {
+        if(err) return console.log(err.message)
+        res.json(result[0])
+    })
+})
+
 // http://localhost:3000/psicologos/update
 router.post('/update', async (req, res) => {
     // console.log(req.body)

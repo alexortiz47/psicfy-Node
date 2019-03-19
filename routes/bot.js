@@ -10,7 +10,11 @@ router.post('/', (req, res) => {
     nlu({ text: msg })
         .then(dialog)
         .then((response) => {
-            res.json({mensaje: response})
+            setTimeout(() => {
+                console.log(response)
+                res.json(response)
+            }, Math.random()*5000)
+            
         })
 })
 

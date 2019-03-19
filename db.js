@@ -8,7 +8,7 @@ let connect = (done) => {
         user: 'root',
         password: 'root',
         port: 8889,
-        database: 'pSIcMad'
+        database: 'psicfy'
     })
     done()
 }

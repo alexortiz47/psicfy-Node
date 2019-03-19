@@ -41,9 +41,20 @@ let getEspByPsicologo = (id, done) => {
     })
 }
 
+let getPsicologoByEsp = (idEsp) => {
+    return new Promise((resolve, reject) => {
+        db.get().query('SELECT psicologos.nombre, psicologos.apellidos, psicologos.id FROM `relpsicoesp` INNER JOIN psicologos ON `relpsicoesp`.`fk_psicologo`=`psicologos`.id INNER JOIN `especialidades` ON `relpsicoesp`.`fk_especialidades`=`especialidades`.id WHERE especialidades.id=?', [idEsp], (err, result) => { 
+            if (err) reject(err.message)
+            resolve(result)
+        })
+    })
+    
+}
+
 module.exports = {
     getAll: getAll,
     getEspByPsicologo: getEspByPsicologo,
+    getPsicologoByEsp: getPsicologoByEsp,
     create: create,
     createEsp: createEsp,
     deleteEsp: deleteEsp

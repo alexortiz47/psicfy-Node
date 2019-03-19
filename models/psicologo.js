@@ -17,6 +17,13 @@ let getByToken = (token, done) => {
     })
 }
 
+let getById = (id, done) => {
+    db.get().query('SELECT * FROM psicologos WHERE id=?', [id], (err, result) => {
+        if(err) return console.log(err.message)
+        done(null, result)
+    })
+}
+
 // Insertar psicologo en la BD
 let create = ({nombre, apellidos, numColeg, domicilio, poblacion, imgUrl, correo, password, latitud, longitud}) => {
     return new Promise((resolve, reject) => {
@@ -122,6 +129,7 @@ module.exports = {
     create: create,
     createAdmin: createAdmin,
     getByToken: getByToken,
+    getById: getById,
     updatePsicologo: updatePsicologo,
     deletePsicologo: deletePsicologo,
     getByCorreo: getByCorreo,
