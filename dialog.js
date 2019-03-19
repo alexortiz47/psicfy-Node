@@ -44,6 +44,9 @@ function evaluarMensaje(pIntentWit) {
         case 'registro':
             answer.mensaje = 'Registrarse como profesional te da a conocer a los usuarios que utilicen el servicio, y que así puedan contactar contigo.'
             break
+        case 'contacto':
+            answer.mensaje = 'Puedes escribir un correo a <a href="mailto:ortizalex.47@gmail.com">ortizalex.47@gmail.com</a> con tu sugerencia.'
+            break
     }
 
     return answer
@@ -54,7 +57,7 @@ let evaluarMensajeSearch = async (pEspWit) => {
     let answer = {
         tipo: 'search',
         especialidad: pEspWitFormat,
-        mensaje: `Aquí tienes los psicólogos para lo que buscas:`,
+        mensaje: `Aquí tienes algunos psicólogos para lo que buscas:`,
         psicologos: []
     }
     let result = ''
@@ -84,6 +87,6 @@ let evaluarMensajeSearch = async (pEspWit) => {
 
     result = await especialidadModel.getPsicologoByEsp(especialidades[pEspWitFormat])
     answer.psicologos = result
-    
+
     return answer
 }

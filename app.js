@@ -11,6 +11,7 @@ const psicologosRouter = require('./routes/psicologos');
 const preguntasRouter = require('./routes/preguntas');
 const especialidadesRouter = require('./routes/especialidades')
 const botRouter = require('./routes/bot')
+const mailRouter = require('./routes/mail')
 
 const cors = require('cors')
 
@@ -34,6 +35,7 @@ app.use('/psicologos', psicologosRouter);
 app.use('/preguntas', preguntasRouter);
 app.use('/especialidades', especialidadesRouter)
 app.use('/bot', botRouter)
+app.use('/mail', mailRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
